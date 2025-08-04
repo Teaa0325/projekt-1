@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Escape-Room</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: large;
+            background-image: url(Höhle_bild.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.6;
+
+        }
+
+        article {
+            width: 80%;
+            background-color: rgb(166, 171, 175);
+            padding: 3%;
+            border-radius: 20px;
+
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+    </style>
+    <script>
+        function checkAnswer(event) {
+            event.preventDefault();
+            const eingabe1 = document.getElementById("lösung1").value.trim();
+            const eingabe2 = document.getElementById("lösung2").value.trim();
+            const eingabe3 = document.getElementById("lösung3").value.trim();
+            const richtigeAntwort1 = "5";
+            const richtigeAntwort2 = "10";
+            const richtigeAntwort3 = "5";
+
+            if (eingabe1 == richtigeAntwort1 && eingabe2 == richtigeAntwort2 && eingabe3 == richtigeAntwort3) {
+                alert("Richtig! Du hast das nächste Rätsel freigeschaltet!");
+                window.location.href = "4_rätsel.html";
+            } else {
+                alert("Falsche Lösung!")
+                document.getElementById("lösung1").value = "";
+                document.getElementById("lösung2").value = "";
+                document.getElementById("lösung3").value = "";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <article>
+            <h1>Drittes Rätsel</h1>
+            <p>Während du tiefer in die Insel vordringst, wirst du mit zahlreichen Herausforderungen konfrontiert. Um
+                eine der Fallen zu umgehen, musst du den Code vervollständigen, der auf
+                einem alten Stein eingraviert ist. Fülle dafür die Lücken
+                aus.</p><br>
+            <form onsubmit="checkAnswer(event)" autocomplete="off">
+                # Finde die fehlenden Variablen (mit
+                ???)
+                und ermittle das Passwort.<br><br> #Rätsel 1 <br>a=<input type="text" name="lösung" id="lösung1"
+                    size="1" required autofocus> <br>b=3 <br>c=2<br> ergebnis1=((a + b) * 2 - b)
+                // c # Ergebnis: 6<br><br>
+                #Rätsel 2<br> x=25<br> y=<input type="text" name="lösung" id="lösung2" size="1" required><br>
+                z=4 <br>ergebnis2=((x % z) + y * 2) // 3 # Ergebnis: 7 <br><br>#Rätsel
+                3<br> m=5 <br>n=<input type="text" name="lösung" id="lösung3" size="1" required><br> p=2<br>
+                ergebnis3=(n**2 - m) + (p * 3) # Ergebnis: 26 <br><br># Passwort <br># Kombiniere die drei gesuchten
+                Zahlen (a,
+                y, n): <br># Passwort=str(a) + str(y) + str(n)<br>
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </form>
+        </article>
+    </div>
+
+</body>
+
+</html>

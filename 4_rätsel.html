@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Escape-Room</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: large;
+            background-image: url(Höhle_bild.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.6;
+
+        }
+
+        article {
+            width: fit-content;
+            background-color: rgb(166, 171, 175);
+            padding: 3%;
+            border-radius: 20px;
+
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+    </style>
+    <script>
+        function checkAnswer(event) {
+            event.preventDefault();
+            const eingabe = document.getElementById("lösung").value.trim();
+            const richtigeAntwort = "Geheimnis";
+            if (eingabe == richtigeAntwort) {
+                alert("Richtig! Du hast das nächste Rätsel freigeschaltet!");
+                window.location.href = "5_rätsel.html";
+            } else {
+                alert("Falsche Lösung!")
+                document.getElementById("lösung").value = "";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <article>
+            <h1>Viertes Rätsel</h1>
+            <p>Nun findest du einen weiteren Hinweis. Es ist ein Worträtsel, das
+                dir deinen Hinweis zum Schatz gibt. Löse dafür das folgende Rätsel:<br>"Wenn du mich besitzt willst
+                du mich teilen, doch wenn du
+                mich teilst besitzt du mich nicht mehr. Was bin ich?"</p>
+            <form onsubmit="checkAnswer(event)" autocomplete="off">
+                <label for="lösung">Lösung:</label>
+                <input type="text" id="lösung" name="lösung" size="10" required autofocus>
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </form>
+        </article>
+    </div>
+</body>
+
+</html>
